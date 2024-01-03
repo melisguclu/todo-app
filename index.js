@@ -26,19 +26,29 @@ function addNewTodo(text){
         <span class="remove"></span> 
     `;
 
-    // add class name to newTodo
-    newTodo.classList.add('row');
-
+    newTodo.classList.add('new-todo');
     todoList.append(newTodo);
-
-
-
-
-
-
-
-
+    updateItemCount(1);
 
 }
+
+/* remove items */
+const isDone = document.querySelector('.checkbox');
+
+todoList.addEventListener('click', (event) => {
+    if(event.target.classList.contains('remove')){
+        updateItemCount(-1);
+        event.target.parentElement.remove();
+    }
+});
+
+
+/* count items left */
+const itemsLeftSpan = document.querySelector('.items-left span');
+itemsLeftSpan.innerHTML =document.querySelectorAll('.list').length;
+
+
+
+
 
 
