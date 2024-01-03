@@ -7,8 +7,7 @@ inputBox.addEventListener('keypress', (event) => {
     if(event.charCode === 13 && inputBox.value.length > 0){
         let text = inputBox.value;
         addNewTodo(text);
-        console.log(inputBox.value);
-        inputBox.value = "";
+        inputBox.value = " ";
     }
     
 });
@@ -16,7 +15,7 @@ inputBox.addEventListener('keypress', (event) => {
 
 function addNewTodo(text){
     const newTodo = document.createElement('li');
-
+    
     newTodo.innerHTML = 
     `
         <label class="list-element">
@@ -51,6 +50,23 @@ itemsLeftSpan.innerHTML =document.querySelectorAll('.list').length;
 function updateItemCount(number){
     itemsLeftSpan.innerHTML = + itemsLeftSpan.innerHTML + number;
 }
+
+//TODO: fix here
+const checkbox = document.querySelector(' .new-todo .checkbox');
+
+checkbox.addEventListener('click', (event) => {
+    if(event.target.checked){
+
+    event.target.parentElement.classList.add('checked');
+    updateItemCount(-1);
+    }
+    else{
+        event.target.parentElement.classList.remove('checked');
+        updateItemCount(1);
+    }
+    
+   
+});
 
 
 
