@@ -45,6 +45,7 @@ todoList.addEventListener('click', (event) => {
 
 
 /* count items left */
+//TODO: fix (1 item left at the beginning)
 const itemsLeftSpan = document.querySelector('.items-left span');
 itemsLeftSpan.innerHTML =document.querySelectorAll('.list').length;
 
@@ -75,6 +76,13 @@ const filterOptions = document.querySelector('.filter');
 
 filterOptions.addEventListener('click', (event) => {
   const todoListAll = document.querySelectorAll('.new-todo');
+  const filterItems = filterOptions.querySelectorAll('div');
+  filterItems.forEach((item) => {
+    item.style.color = ''; 
+  });
+  event.target.style.color = '#3A7BFD';
+  
+  
   if (event.target.classList.contains('all')) {
     todoListAll.forEach((item) => {
       item.style.display = 'flex';
