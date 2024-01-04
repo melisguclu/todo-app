@@ -99,6 +99,18 @@ filterOptions.addEventListener('click', (event) => {
 });
 
 
+/* clear completed items */
+const clearOption = document.querySelector('.clear');
+
+clearOption.addEventListener('click', () => {
+  const todoListAll = document.querySelectorAll('.new-todo');
+  todoListAll.forEach((item) => {
+    if (item.classList.contains('checked')) {
+      item.remove();
+    }
+  });
+});
+
 
 
 
