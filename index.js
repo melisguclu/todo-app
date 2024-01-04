@@ -35,9 +35,11 @@ function addNewTodo(text){
 const isDone = document.querySelector('.checkbox');
 
 todoList.addEventListener('click', (event) => {
-    if(event.target.classList.contains('remove')){
-        updateItemCount(-1);
+    if(event.target.classList.contains('remove') ){
         event.target.parentElement.remove();
+        if(!event.target.parentElement.classList.contains('checked')){
+            updateItemCount(-1);
+        }
     }
 });
 
@@ -56,7 +58,7 @@ const checkboxes = document.querySelectorAll('.new-todo input[type="checkbox"]')
 
 document.addEventListener('click', (event) => {
     if (event.target.classList.contains('checkbox')) {
-      const listItem = event.target.closest('.new-todo');
+      const listItem = event.target.closest('.new-todo'); 
       if (event.target.checked) {
         listItem.classList.add('checked');
         updateItemCount(-1);
@@ -66,6 +68,35 @@ document.addEventListener('click', (event) => {
       }
     }
   });
+
+
+/* filter items */
+const filterOptions = document.querySelector('.filter');
+
+filterOptions.addEventListener('click', (event) => {
+  const todoListAll = document.querySelectorAll('.new-todo');
+  if (event.target.classList.contains('all')) {
+    todoListAll.forEach((item) => {
+      item.style.display = 'flex';
+    });
+  } else if (event.target.classList.contains('active')) {
+    todoListAll.forEach((item) => {
+      if (item.classList.contains('checked')) {
+        item.style.display = 'none';
+      } else {
+        item.style.display = 'flex';
+      }
+    });
+  } else if (event.target.classList.contains('completed')) {
+    todoListAll.forEach((item) => {
+      if (item.classList.contains('checked')) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+});
 
 
 
