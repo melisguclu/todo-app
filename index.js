@@ -51,22 +51,24 @@ function updateItemCount(number){
     itemsLeftSpan.innerHTML = + itemsLeftSpan.innerHTML + number;
 }
 
-//TODO: fix here
-const checkbox = document.querySelector(' .new-todo .checkbox');
 
-checkbox.addEventListener('click', (event) => {
-    if(event.target.checked){
+const checkboxes = document.querySelectorAll('.new-todo input[type="checkbox"]');
 
-    event.target.parentElement.classList.add('checked');
-    updateItemCount(-1);
-    }
-    else{
-        event.target.parentElement.classList.remove('checked');
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('checkbox')) {
+      const listItem = event.target.closest('.new-todo');
+      if (event.target.checked) {
+        listItem.classList.add('checked');
+        updateItemCount(-1);
+      } else {
+        listItem.classList.remove('checked');
         updateItemCount(1);
+      }
     }
-    
-   
-});
+  });
+
+
+
 
 
 
