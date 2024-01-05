@@ -48,12 +48,13 @@ todoList.addEventListener('click', (event) => {
 const itemsLeftSpan = document.querySelector('.items-left span');
 itemsLeftSpan.innerHTML =document.querySelectorAll('.new-todo').length;
 
+
 /*update items left */
 function updateItemCount(number){
     itemsLeftSpan.innerHTML = + itemsLeftSpan.innerHTML + number;
 }
 
-
+/* mark items as completed */
 const checkboxes = document.querySelectorAll('.new-todo input[type="checkbox"]');
 
 document.addEventListener('click', (event) => {
@@ -119,7 +120,11 @@ clearOption.addEventListener('click', () => {
 });
 
 
-
+/* drag and drop */
+const list = document.querySelector('.list');
+new Sortable(list, {
+  animation: 350,
+});
 
 
 
