@@ -45,9 +45,8 @@ todoList.addEventListener('click', (event) => {
 
 
 /* count items left */
-//TODO: fix (1 item left at the beginning)
 const itemsLeftSpan = document.querySelector('.items-left span');
-itemsLeftSpan.innerHTML =document.querySelectorAll('.list').length;
+itemsLeftSpan.innerHTML =document.querySelectorAll('.new-todo').length;
 
 /*update items left */
 function updateItemCount(number){
