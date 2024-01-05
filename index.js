@@ -4,7 +4,7 @@ const inputBox = document.querySelector('.create-new-todo input');
 const todoList = document.querySelector('.todo-list ul');
 
 inputBox.addEventListener('keypress', (event) => {
-    if(event.charCode === 13 && inputBox.value.length > 0){
+    if(event.charCode === 13 && inputBox.value.length > 0 && inputBox.value.trim() !== ""){
         let text = inputBox.value;
         addNewTodo(text);
         inputBox.value = " ";
