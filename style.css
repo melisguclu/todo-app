@@ -68,6 +68,7 @@ li{
     text-align: center;
     align-items: center;
     color: #9495A5;
+    flex-wrap: wrap;
 }
 
 .filter{
@@ -137,6 +138,26 @@ li{
 .hidden{
     display: none;
 }
+/*responsive for mobile*/
+@media only screen and (max-width: 1024px) {
+    .background{
+        background:url(./images/bg-mobile-light.jpg) no-repeat;
+        background-size: cover;
+        
+
+    }
+    .todo-app{
+        background:none;
+        width: 90%;
+        padding: 15px;
+        position: relative;
+        top: -27vh;
+        left: 5vw;
+    
+    }
+  
+}
+
 
 
 
