@@ -8,8 +8,7 @@ inputBox.addEventListener('keypress', (event) => {
         let text = inputBox.value;
         addNewTodo(text);
         inputBox.value = " ";
-    }
-    
+    }    
 });
 
 
@@ -74,38 +73,49 @@ document.addEventListener('click', (event) => {
 /* filter items */
 const filterOptions = document.querySelector('.filter');
 
+function showAll(){
+    const todoListAll = document.querySelectorAll('.new-todo');
+    todoListAll.forEach((item) => {
+        item.style.display = 'flex';
+    });
+}
+function showActive(){
+    const todoListAll = document.querySelectorAll('.new-todo');
+    todoListAll.forEach((item) => {
+        if (item.classList.contains('checked')) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+}
+function showCompleted(){
+    const todoListAll = document.querySelectorAll('.new-todo');
+    todoListAll.forEach((item) => {
+        if (item.classList.contains('checked')) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+}
+
 filterOptions.addEventListener('click', (event) => {
   const todoListAll = document.querySelectorAll('.new-todo');
-  const filterItems = filterOptions.querySelectorAll('div');
+  const filterItems = filterOptions.querySelectorAll('div'); //all, selected , active
   filterItems.forEach((item) => {
-    item.style.color = ''; 
+    item.classList.remove('selected-filter');
   });
-  event.target.style.color = '#3A7BFD';
-  
-  
+  event.target.classList.add('selected-filter');
   if (event.target.classList.contains('all')) {
-    todoListAll.forEach((item) => {
-      item.style.display = 'flex';
-    });
+    showAll();
   } else if (event.target.classList.contains('active')) {
-    todoListAll.forEach((item) => {
-      if (item.classList.contains('checked')) {
-        item.style.display = 'none';
-      } else {
-        item.style.display = 'flex';
-      }
-    });
+    showActive();
   } else if (event.target.classList.contains('completed')) {
-    todoListAll.forEach((item) => {
-      if (item.classList.contains('checked')) {
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
-      }
-    });
+    showCompleted();
   }
-});
 
+});
 
 /* clear completed items */
 const clearOption = document.querySelector('.clear');
