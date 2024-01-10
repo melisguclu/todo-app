@@ -8,7 +8,13 @@ inputBox.addEventListener('keypress', (event) => {
         let text = inputBox.value;
         addNewTodo(text);
         inputBox.value = " ";
-    }    
+        if(recentFilter != "all"){
+          addSelectedClass();
+          showAll();
+          recentFilter = "all";
+        }    
+
+    }
 });
 
 
@@ -71,7 +77,10 @@ document.addEventListener('click', (event) => {
 
 
 /* filter items */
-const filterOptions = document.querySelector('.filter');
+//TODO: fix bug when entering new item after filtering (all)
+//TODO: modify when active is selected and items are checked
+const filterOptions = document.querySelectorAll('.filter-option');
+let recentFilter = "all";
 
 function showAll(){
     const todoListAll = document.querySelectorAll('.new-todo');
@@ -100,21 +109,33 @@ function showCompleted(){
       });
 }
 
-filterOptions.addEventListener('click', (event) => {
-  const todoListAll = document.querySelectorAll('.new-todo');
-  const filterItems = filterOptions.querySelectorAll('div'); //all, selected , active
-  filterItems.forEach((item) => {
-    item.classList.remove('selected-filter');
+function addSelectedClass(){
+  filterOptions.forEach((option) => {
+    option.classList.remove('selected-filter');
   });
-  event.target.classList.add('selected-filter');
-  if (event.target.classList.contains('all')) {
-    showAll();
-  } else if (event.target.classList.contains('active')) {
-    showActive();
-  } else if (event.target.classList.contains('completed')) {
-    showCompleted();
-  }
+}
 
+filterOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+        if(option.classList.contains('all')){
+            showAll();
+            addSelectedClass();
+            option.classList.add('selected-filter');
+            recentFilter = "all";
+        }
+        else if(option.classList.contains('active')){
+            showActive();
+            addSelectedClass();
+            option.classList.add('selected-filter');
+            recentFilter = "active";
+        }
+        else if(option.classList.contains('completed')){
+            showCompleted();
+            addSelectedClass();
+            option.classList.add('selected-filter');
+            recentFilter = "completed";
+        }
+    });
 });
 
 /* clear completed items */
