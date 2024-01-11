@@ -157,6 +157,15 @@ new Sortable(list, {
   animation: 350,
 });
 
+/* dark mode */
+const darkMode = document.querySelector('.dark-light-theme-btn');
+const body = document.querySelector('body');
+
+darkMode.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  console.log("dark mode");
+  
+});
 
 
 

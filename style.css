@@ -146,6 +146,14 @@ li{
 .selected-filter{
     color: #3A7BFD;
 }
+.dark-light-theme-btn{
+    cursor: pointer;
+}
+
+body.dark{
+    background-color: #25273C;
+}
+
 /*responsive for mobile*/
 @media only screen and (max-width: 1024px) {
     .background{
