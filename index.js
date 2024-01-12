@@ -161,10 +161,19 @@ new Sortable(list, {
 const darkMode = document.querySelector('.dark-light-theme-btn');
 const body = document.querySelector('body');
 
+
 darkMode.addEventListener('click', () => {
   body.classList.toggle('dark');
-  console.log("dark mode");
-  darkMode.classList.toggle('dark');
+  // const newTodo = document.querySelectorAll('.new-todo');
+  // darkMode.classList.toggle('dark');
+  // background.classList.toggle('dark');
+  // inputBox.classList.toggle('dark');
+  // newTodo.forEach((item) => {
+  //   item.classList.toggle('dark');
+  // });
+  // row.classList.toggle('dark'); 
+  // todoStateSection.classList.toggle('dark');  
+
   
 });
 

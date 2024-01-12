@@ -148,15 +148,59 @@ li{
 }
 .dark-light-theme-btn{
     cursor: pointer;
+    background: url(./images/icon-moon.svg) no-repeat;
+    width: 30px;
+    height: 30px;
 }
 
 body.dark{
+    background-color: #161722;
+}
+body.dark .background{
+    background:url(./images/bg-desktop-dark.jpg) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    z-index: -1;
     background-color: #25273C;
 }
 
-.dark-light-theme-btn.dark{
+body.dark .dark-light-theme-btn{
     background: url(./images/icon-sun.svg) no-repeat;
 }
+body.dark .new-todo , body.dark .row{
+    background-color: #24273B;
+    border-bottom: 2px solid #393A4B; 
+    color: #D2D3DB;
+}
+body.dark .todo-state{
+    color: #9495A5;
+}
+
+/*animation for toggleing to dark mode*/
+body.dark .background{
+    animation: dark 0.5s ease-in-out;
+}
+
+@keyframes dark{
+    0%{
+        background:url(./images/bg-desktop-light.jpg) no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 40vh;
+        z-index: -1;
+        background-color: #E4E5F1;
+    }
+    100%{
+        background:url(./images/bg-desktop-dark.jpg) no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 40vh;
+        z-index: -1;
+        background-color: #25273C;
+    }
+}
+
 
 /*responsive for mobile*/
 @media only screen and (max-width: 1024px) {
@@ -164,7 +208,9 @@ body.dark{
         background:url(./images/bg-mobile-light.jpg) no-repeat;
         background-size: cover;
         
-
+    }
+    body.dark .filter{
+        border-top: 2px solid #393A4B;
     }
     .todo-app{
         background:none;
