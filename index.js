@@ -164,6 +164,7 @@ const body = document.querySelector('body');
 darkMode.addEventListener('click', () => {
   body.classList.toggle('dark');
   console.log("dark mode");
+  darkMode.classList.toggle('dark');
   
 });
 
