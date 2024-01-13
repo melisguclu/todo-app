@@ -138,6 +138,8 @@ filterOptions.forEach((option) => {
     });
 });
 
+
+
 /* clear completed items */
 const clearOption = document.querySelector('.clear');
 
