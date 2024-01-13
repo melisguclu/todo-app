@@ -77,13 +77,13 @@ document.addEventListener('click', (event) => {
 
 
 /* filter items */
-//TODO: fix bug when entering new item after filtering (all)
 //TODO: modify when active is selected and items are checked
 const filterOptions = document.querySelectorAll('.filter-option');
 let recentFilter = "all";
 
 function showAll(){
     const todoListAll = document.querySelectorAll('.new-todo');
+    filterOptions[0].classList.add('selected-filter');
     todoListAll.forEach((item) => {
         item.style.display = 'flex';
     });
@@ -163,18 +163,7 @@ const body = document.querySelector('body');
 
 
 darkMode.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  // const newTodo = document.querySelectorAll('.new-todo');
-  // darkMode.classList.toggle('dark');
-  // background.classList.toggle('dark');
-  // inputBox.classList.toggle('dark');
-  // newTodo.forEach((item) => {
-  //   item.classList.toggle('dark');
-  // });
-  // row.classList.toggle('dark'); 
-  // todoStateSection.classList.toggle('dark');  
-
-  
+  body.classList.toggle('dark'); 
 });
 
 
