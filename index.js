@@ -63,21 +63,30 @@ function updateItemCount(number){
 const checkboxes = document.querySelectorAll('.new-todo input[type="checkbox"]');
 
 document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('checkbox')) {
-      const listItem = event.target.closest('.new-todo'); 
-      if (event.target.checked) {
-        listItem.classList.add('checked');
-        updateItemCount(-1);
-      } else {
-        listItem.classList.remove('checked');
-        updateItemCount(1);
-      }
+  if (event.target.classList.contains('checkbox')) {
+    const listItem = event.target.closest('.new-todo');
+    const isChecked = event.target.checked;
+
+    if (isChecked && filterOptions[1].classList.contains('selected-filter')) {
+      listItem.style.display = 'none';
+    } else if (!isChecked && filterOptions[2].classList.contains('selected-filter')) {
+      listItem.style.display = 'none';
+    } else {
+      listItem.style.display = 'flex';
     }
-  });
+
+    if (isChecked) {
+      listItem.classList.add('checked');
+      updateItemCount(-1);
+    } else {
+      listItem.classList.remove('checked');
+      updateItemCount(1);
+    }
+  }
+});
 
 
 /* filter items */
-//TODO: modify when active is selected and items are checked
 const filterOptions = document.querySelectorAll('.filter-option');
 let recentFilter = "all";
 
