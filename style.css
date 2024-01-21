@@ -8,10 +8,13 @@ body{
     font-size: 18px;
     font-family: "Josefin Sans", sans-serif;
     background-color: #E4E5F1;
+    transition: all 0.15s ease;
 }
 .background{
     background:url(./images/bg-desktop-light.jpg) no-repeat;
     background-size: cover;
+    transition: all 0.15s ease;
+    background-color: #E4E5F1;
     width: 100vw;
     height: 40vh;
     z-index: -1;
@@ -19,6 +22,7 @@ body{
 header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
     letter-spacing: 10px;
 }
@@ -167,27 +171,14 @@ body.dark .todo-state{
     color: #9495A5;
 }
 
-/*animation for toggleing to dark mode*/
 body.dark .background{
-    animation: dark 0.5s ease-in-out;
+    background:url(./images/bg-desktop-dark.jpg) no-repeat;
+    background-size: cover;
+    background-color: #25273C;
 }
-
-@keyframes dark{
-    0%{
-        background:url(./images/bg-desktop-light.jpg) no-repeat;
-        background-size: cover;
-        background-color: #E4E5F1;
-    }
-    100%{
-        background:url(./images/bg-desktop-dark.jpg) no-repeat;
-        background-size: cover;
-        background-color: #25273C;
-    }
-}
-
 
 /*responsive for mobile*/
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1400px) {
     .background{
         background:url(./images/bg-mobile-light.jpg) no-repeat;
         background-size: cover;

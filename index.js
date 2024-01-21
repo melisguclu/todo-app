@@ -170,11 +170,10 @@ new Sortable(list, {
 
 /* dark mode */
 const darkMode = document.querySelector('.dark-light-theme-btn');
-const body = document.querySelector('body');
-
 
 darkMode.addEventListener('click', () => {
-  body.classList.toggle('dark'); 
+  document.body.classList.toggle('dark'); 
+
 });
 
 
